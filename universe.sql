@@ -267,9 +267,9 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Data for Name: blackhole; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.blackhole VALUES (1, NULL, NULL, false, 'bh1');
-INSERT INTO public.blackhole VALUES (2, NULL, NULL, false, 'bh2');
-INSERT INTO public.blackhole VALUES (3, NULL, NULL, false, 'bh3');
+INSERT INTO public.blackhole VALUES (1, NULL, NULL, false, 'bh2');
+INSERT INTO public.blackhole VALUES (2, NULL, NULL, false, 'bh3');
+INSERT INTO public.blackhole VALUES (5, NULL, NULL, false, 'bh1');
 
 
 --
@@ -278,10 +278,10 @@ INSERT INTO public.blackhole VALUES (3, NULL, NULL, false, 'bh3');
 
 INSERT INTO public.galaxy VALUES (1, NULL, NULL, 'andromeda', 100000);
 INSERT INTO public.galaxy VALUES (2, NULL, NULL, 'galaxy2', 100000);
-INSERT INTO public.galaxy VALUES (4, NULL, NULL, 'galaxy3', 100000);
-INSERT INTO public.galaxy VALUES (5, NULL, NULL, 'galaxy4', 100000);
-INSERT INTO public.galaxy VALUES (6, NULL, NULL, 'galaxy5', 100000);
-INSERT INTO public.galaxy VALUES (7, NULL, NULL, 'galaxy6', 100000);
+INSERT INTO public.galaxy VALUES (3, NULL, NULL, 'galaxy3', 100000);
+INSERT INTO public.galaxy VALUES (4, NULL, NULL, 'galaxy4', 100000);
+INSERT INTO public.galaxy VALUES (5, NULL, NULL, 'galaxy5', 100000);
+INSERT INTO public.galaxy VALUES (6, NULL, NULL, 'galaxy6', 100000);
 
 
 --
@@ -317,17 +317,16 @@ INSERT INTO public.moon VALUES (20, 'moon3', true, 4, 'moon20');
 INSERT INTO public.planet VALUES (1, 'earth', NULL, false, 1);
 INSERT INTO public.planet VALUES (2, 'mars', NULL, false, 1);
 INSERT INTO public.planet VALUES (3, 'neptune', NULL, false, 1);
-INSERT INTO public.planet VALUES (4, 'neptune', NULL, false, 1);
-INSERT INTO public.planet VALUES (5, 'jupiter', NULL, false, 1);
-INSERT INTO public.planet VALUES (6, 'uranus', NULL, false, 1);
-INSERT INTO public.planet VALUES (7, 'venus', NULL, false, 1);
-INSERT INTO public.planet VALUES (8, 'murcury', NULL, false, 1);
-INSERT INTO public.planet VALUES (9, 'saturn', NULL, false, 1);
-INSERT INTO public.planet VALUES (10, 'pluto', NULL, false, 1);
-INSERT INTO public.planet VALUES (11, 'yolo', NULL, false, 1);
-INSERT INTO public.planet VALUES (12, 'jalala', NULL, false, 2);
-INSERT INTO public.planet VALUES (13, 'malala', NULL, false, 2);
-INSERT INTO public.planet VALUES (14, 'kento', NULL, false, 3);
+INSERT INTO public.planet VALUES (4, 'jupiter', NULL, false, 1);
+INSERT INTO public.planet VALUES (5, 'uranus', NULL, false, 1);
+INSERT INTO public.planet VALUES (6, 'venus', NULL, false, 1);
+INSERT INTO public.planet VALUES (7, 'murcury', NULL, false, 1);
+INSERT INTO public.planet VALUES (8, 'saturn', NULL, false, 1);
+INSERT INTO public.planet VALUES (9, 'pluto', NULL, false, 1);
+INSERT INTO public.planet VALUES (10, 'yolo', NULL, false, 1);
+INSERT INTO public.planet VALUES (11, 'jalala', NULL, false, 2);
+INSERT INTO public.planet VALUES (12, 'malala', NULL, false, 2);
+INSERT INTO public.planet VALUES (13, 'kento', NULL, false, 3);
 
 
 --
@@ -346,14 +345,14 @@ INSERT INTO public.star VALUES (6, 123461234, 'orange', 'star in galaxy 2', 2);
 -- Name: blackhole_blackhole_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.blackhole_blackhole_id_seq', 3, true);
+SELECT pg_catalog.setval('public.blackhole_blackhole_id_seq', 5, true);
 
 
 --
 -- Name: galaxy_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 7, true);
+SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 6, true);
 
 
 --
@@ -367,7 +366,7 @@ SELECT pg_catalog.setval('public.moon_moon_id_seq', 20, true);
 -- Name: planet_planet_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.planet_planet_id_seq', 14, true);
+SELECT pg_catalog.setval('public.planet_planet_id_seq', 13, true);
 
 
 --
@@ -391,14 +390,6 @@ ALTER TABLE ONLY public.blackhole
 
 ALTER TABLE ONLY public.blackhole
     ADD CONSTRAINT blackhole_pkey PRIMARY KEY (blackhole_id);
-
-
---
--- Name: galaxy galaxy_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
---
-
-ALTER TABLE ONLY public.galaxy
-    ADD CONSTRAINT galaxy_name_key UNIQUE (name);
 
 
 --
@@ -431,6 +422,14 @@ ALTER TABLE ONLY public.moon
 
 ALTER TABLE ONLY public.galaxy
     ADD CONSTRAINT name_unique UNIQUE (name);
+
+
+--
+-- Name: planet name_unique_planet; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet
+    ADD CONSTRAINT name_unique_planet UNIQUE (name);
 
 
 --
